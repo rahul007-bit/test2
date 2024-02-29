@@ -1,6 +1,4 @@
 #!/bin/bash
-# Call this script as `./build.sh <remove-older>` eg. `./build.sh false`
-
 set -e
 
 # Remove older build
@@ -34,11 +32,6 @@ mv "pkg/" $OUT_FOLDER
 sleep 1
 
 enable_cf_in_bindings() {
-	# Enable Cloudflare Workers in the generated JS bindings.
-	# The generated bindings are compatible with:
-	# - Node.js
-	# - Cloudflare Workers / Miniflare
-
 	local FILE="$1" # e.g., `query_engine.js`
 	local BG_FILE="jsonnet_wasm_bg.js"
 	local OUTPUT_FILE="${OUT_FOLDER}/jsonnet_wasm.js"
