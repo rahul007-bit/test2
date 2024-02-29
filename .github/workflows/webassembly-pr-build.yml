@@ -77,8 +77,6 @@ jobs:
         working-directory: .
         run: |
           make build-jsonnet
-      - name: Build Release Binary
-        run: cargo build --release
       - name: Upload Release Binary
         uses: actions/upload-artifact@v2
         with:
