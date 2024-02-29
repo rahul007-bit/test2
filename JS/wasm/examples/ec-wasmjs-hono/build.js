@@ -10,7 +10,6 @@ build({
     format: "esm",
     target: "esnext",
     platform: "node",
-    // external: ["arakoo"],
     define: {
         "process.env.arakoo": JSON.stringify(runtime === "arakoo"),
     },
