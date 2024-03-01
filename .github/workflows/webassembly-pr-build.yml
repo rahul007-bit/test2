@@ -65,7 +65,6 @@ jobs:
           echo "cache-hit=$(test -d ./target && echo true || echo false)" >> $GITHUB_OUTPUT
 
       - name: Build Javy Core
-        if: 
         working-directory: .
         run: |
           make add build-cors
@@ -77,8 +76,16 @@ jobs:
         working-directory: .
         run: |
           make build-jsonnet
+      - name: Create out directory
+        working-directory: .
+        run: |
+          mkdir bin/
+      - name: Copy arakoo bin
+        working-directory: .
+        run: |
+          cp target/release/arakoo bin/
       - name: Upload Release Binary
         uses: actions/upload-artifact@v2
         with:
           name: arakoo
-          path: target/release/arakoo
+          path: bin
