@@ -59,10 +59,11 @@ jobs:
         
       - name: Get variables
         id: vars
+        run: echo "tag_name=${{ env.RELEASE_TAG }}" >> $GITHUB_ENV
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
             ./Output/**/*.*
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.ref}}
