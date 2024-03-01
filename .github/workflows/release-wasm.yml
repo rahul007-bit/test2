@@ -65,5 +65,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./Output/**/*.*
+            ./Output/*
           tag_name: ${{ github.ref}}
